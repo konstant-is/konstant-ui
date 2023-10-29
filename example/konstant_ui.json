@@ -1,0 +1,86 @@
+{
+  "path": "lib",
+  "widgetbook": true,
+  "styles": {
+    "inset": 8.0,
+    "colors": {
+      "primary": "#1473E6",
+      "white": "#FFFFFF",
+      "accent": {
+        "50": "#EFEFEF",
+        "100": "#C8C8C8",
+        "200": "#A2A2A2",
+        "300": "#858585",
+        "400": "#7A7A7A",
+        "500": "#494949",
+        "600": "#333333",
+        "700": "#2F2F2F",
+        "800": "#1E1E1E",
+        "900": "#1A1A1A"
+      },
+      "red": {
+        "50": "#EC5B62",
+        "100": "#B30B00"
+      },
+      "border": {
+        "default": "#333333",
+        "strong": "#C8C8C8",
+        "weak": "#494949"
+      },
+      "bg": {
+        "default": "#1A1A1A",
+        "weak": "#1E1E1E",
+        "hover": "#2F2F2F"
+      },
+      "icon": {
+        "default": "#A2A2A2",
+        "weak": "#7A7A7A",
+        "strong": "#EFEFEF"
+      },
+      "text": {
+        "default": "#C8C8C8",
+        "weak": "#858585",
+        "strong": "#EFEFEF"
+      },
+      "buttonText": "#C8C8C8",
+      "buttonBorder": "#C8C8C8"
+    }
+  },
+  "components": [
+    "lib/components/ui/alert/ui_alert.dart",
+    "lib/components/ui/alert/widgetbook.dart",
+    "lib/components/ui/builders/box_builder.dart",
+    "lib/components/ui/builders/focus_action_builder.dart",
+    "lib/components/ui/button/button_builder.dart",
+    "lib/components/ui/button/button_style.dart",
+    "lib/components/ui/button/ui_button.dart",
+    "lib/components/ui/button/widgetbook.dart",
+    "lib/components/ui/elements/ui_icons.dart",
+    "lib/components/ui/elements/ui_skeleton.dart",
+    "lib/components/ui/elements/ui_spinner.dart",
+    "lib/components/ui/elements/widgetbook.dart",
+    "lib/components/ui/input/formatters.dart",
+    "lib/components/ui/input/ui_input.dart",
+    "lib/components/ui/input/validators.dart",
+    "lib/components/ui/input/widgetbook.dart",
+    "lib/components/ui/tabs/ui_tabs.dart",
+    "lib/components/ui/tabs/widgetbook.dart",
+    "lib/components/ui/text/ui_text.dart",
+    "lib/components/ui/text/ui_text_style.dart",
+    "lib/components/ui/toggle/toggle_builder.dart",
+    "lib/components/ui/toggle/toggle_style.dart",
+    "lib/components/ui/toggle/ui_toggle.dart",
+    "lib/components/ui/toggle/ui_toggle_button.dart",
+    "lib/components/ui/toggle/ui_toggle_list.dart",
+    "lib/components/ui/toggle/widgetbook.dart",
+    "lib/styles/styles.dart",
+    "lib/styles/ui_colors.dart",
+    "lib/styles/ui_insets.dart",
+    "lib/utils/debouncer.dart",
+    "lib/utils/utils.dart",
+    "lib/widgetbook/widgetbook.dart",
+    "lib/widgetbook/widgetbook.directories.g.dart",
+    "lib/widgetbook/widgetbook_app.dart",
+    "lib/widgetbook/widgetbook_components.dart"
+  ]
+}

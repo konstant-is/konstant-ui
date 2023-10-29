@@ -1,0 +1,31 @@
+name: app
+description: A new Flutter project.
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.1.0 <4.0.0"
+
+dependencies:
+  collection: ^1.17.2
+  flutter:
+    sdk: flutter
+
+  konstant_ui:
+    path: ../
+  lucide_icons: ^0.257.0
+  widgetbook: ^3.3.0
+  widgetbook_annotation: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  widgetbook_generator: ^3.2.0
+  build_runner: ^2.4.6
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/avatar.png

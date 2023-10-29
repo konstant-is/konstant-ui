@@ -1,0 +1,27 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "konstant_ui",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "app_macos",
+      "cwd": "app",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/widgetbook/widgetbook_app.dart"
+    },
+
+    {
+      "name": "example",
+      "cwd": "example",
+      "request": "launch",
+      "type": "dart"
+    }
+  ]
+}
