@@ -14,13 +14,17 @@ void main(List<String> args) async {
   final fileManager = FileManager();
 
   // Define the path to the implementation folder
-  final implementationPath = "${Directory.current.path}/lib/impl";
+  final implementationPath = "${Directory.current.path}/app/lib";
 
   // Get a list of all files in the implementation folder
-  final files = fileManager.getAllFiles(implementationPath);
+  final components =
+      fileManager.getAllFiles("$implementationPath/components/ui");
+  final styles = fileManager.getAllFiles("$implementationPath/styles");
+  final widgetbook = fileManager.getAllFiles("$implementationPath/widgetbook");
 
   // Create templates from the files
-  final templates = files.map((path) => createTemplate(path));
+  final templates = [...components, ...styles, ...widgetbook]
+      .map((path) => createTemplate(path));
 
   // Convert the templates to JSON format
   final json = convertTemplatesToJson(templates);
@@ -38,7 +42,7 @@ void main(List<String> args) async {
 /// Create a Template object from a file
 ComponentTemplate createTemplate(String path) {
   final fileManager = FileManager();
-  final templatePath = path.split("impl/")[1];
+  final templatePath = path.split("app/lib/")[1];
   final code = fileManager.readFile(path);
 
   return ComponentTemplate(path: templatePath, code: code);

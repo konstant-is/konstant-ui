@@ -1,8 +1,8 @@
 class Constants {
   static const String configName = "konstant_ui.json";
 
-  static const String konstantUIPackageName = "konstant_ui";
-  static const String konstantUIImplPackageName = "konstant_ui/impl/";
+  static const String konstantUIPackageName = "app";
+  static const String konstantUIImplPackageName = "app/";
 
   static const String templatesPath = "lib/src/templates.dart";
 

@@ -1,6 +1,9 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:konstant_ui/src/constants.dart';
+import 'package:konstant_ui/src/templates.dart';
+import 'package:konstant_ui/src/templates/component_template.dart';
 import 'package:konstant_ui/utils/printer.dart';
 
 File getConfigFile() {
@@ -56,4 +59,35 @@ extension StringUtilsExtension on String {
     return replaceAllMapped(RegExp('(.+?)([A-Z])'),
         (match) => '${match.group(1)}-${match.group(2)}'.toLowerCase());
   }
+}
+
+ComponentTemplate decodeTemplate(String key) {
+  if (templateMap.containsKey(key) == false) {
+    throw Exception("Could not parse template entry");
+  }
+  final codeList = jsonDecode(templateMap[key]!) as List;
+  final template = ComponentTemplate(
+    path: key,
+    code: utf8.decode(codeList.cast<int>()),
+  );
+
+  return template;
+}
+
+Map<String, String> parseColor(Map<String, dynamic> colors) {
+  final result = <String, String>{};
+
+  colors.forEach((key, value) {
+    print("$key: $value");
+    if (value is String) {
+      result[key] = value;
+    } else if (value is Map<String, dynamic>) {
+      value.forEach((subKey, subValue) {
+        final name = subKey == "default" ? key : '$key${subKey.capitalize}';
+        result[name] = subValue;
+      });
+    }
+  });
+
+  return result;
 }
