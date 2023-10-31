@@ -128,7 +128,7 @@ class InputState extends State<UIInput> {
       children: [
         if (widget.label != null) ...[
           UIText(text: widget.label!, style: _labelTextStyle),
-          Space.h(UIInsets.x1),
+          UISpace.h(UIInsets.x1),
         ],
         TextFormField(
             controller: widget.controller ?? _localController,
@@ -143,7 +143,7 @@ class InputState extends State<UIInput> {
             enabled: !widget.disabled,
             decoration: decoration.copyWith(hintText: widget.placeholder)),
         if (widget.description != null) ...[
-          Space.h(UIInsets.x1),
+          UISpace.h(UIInsets.x1),
           UIText(text: widget.description!, style: _descriptionTextStyle)
         ]
       ],

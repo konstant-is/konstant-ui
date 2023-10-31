@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-const _kBaseInset = 8.0;
+const _kuiBaseInset = 8.0;
 
 class UIBaseInset {
-  static double times(int times, {double base = _kBaseInset}) {
+  static double times(int times, {double base = _kuiBaseInset}) {
     return base * times;
   }
 
-  static double quarter({double value = _kBaseInset}) {
+  static double quarter({double value = _kuiBaseInset}) {
     return value / 4;
   }
 
-  static double half({double value = _kBaseInset}) {
+  static double half({double value = _kuiBaseInset}) {
     return value / 2;
   }
 
@@ -19,7 +19,7 @@ class UIBaseInset {
     return value + quarter();
   }
 
-  static double addHalf(double value, [double base = _kBaseInset]) {
+  static double addHalf(double value, [double base = _kuiBaseInset]) {
     return value + half(value: base);
   }
 }
@@ -40,7 +40,7 @@ class UIInsets {
   /// [baseInset] multiplied by 1
   ///
   /// 8 x 1 = 8
-  static double x1 = _kBaseInset;
+  static double x1 = _kuiBaseInset;
 
   /// [baseInset] multiplied by 2
   ///
@@ -133,7 +133,7 @@ EdgeInsets px(double inset) => EdgeInsets.symmetric(horizontal: inset);
 EdgeInsets py(double inset) => EdgeInsets.symmetric(vertical: inset);
 EdgeInsets pa(double inset) => EdgeInsets.all(inset);
 
-class Space {
+class UISpace {
   static Widget h([double? height]) => SizedBox(
         height: height ?? UIInsets.x1,
       );

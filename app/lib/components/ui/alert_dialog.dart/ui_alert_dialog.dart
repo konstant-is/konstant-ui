@@ -31,7 +31,7 @@ class UIAlertDialog extends StatelessWidget with DialogMixin {
             onTap: () {
               close(context);
             }),
-        Space.w(UIInsets.x1),
+        UISpace.w(UIInsets.x1),
         UIButton(
             text: "Continue",
             onTap: () {

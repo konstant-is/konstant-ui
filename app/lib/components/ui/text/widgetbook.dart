@@ -34,7 +34,7 @@ final showCase = WBCase(
       ),
       UIText.h2("The King's Plan", spaceBottom: true),
       const UISeperator(),
-      Space.h(UIInsets.x3),
+      UISpace.h(UIInsets.x3),
       UIText.p(
         "The king thought long and hard, and finally came up with a brilliant plan: he would tax the jokes in the kingdom.",
         spaceBottom: true,
@@ -100,17 +100,3 @@ final bodyCases = [
   WBCase(title: "Large", child: UIText.lg("Are you sure absolutely sure?")),
   WBCase(title: "Small", child: UIText.sm("Email address")),
 ];
-
-class _TextRow extends StatelessWidget {
-  final Widget child;
-  const _TextRow({super.key, required this.child});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(child: child),
-      ],
-    );
-  }
-}

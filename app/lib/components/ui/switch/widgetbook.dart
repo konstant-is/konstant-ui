@@ -41,7 +41,7 @@ Widget useCase(BuildContext context) {
                   value: false,
                   onChange: (val) => {},
                 )),
-            Space.h(16),
+            UISpace.h(16),
             _FormBox(
               title: "Security emails",
               text: "Receive emails about your account security.",
@@ -51,7 +51,7 @@ Widget useCase(BuildContext context) {
                 onChange: (val) => {},
               ),
             ),
-            Space.h(16),
+            UISpace.h(16),
             UIButton.primary(text: "Submit", onTap: () => {})
           ],
         ),
@@ -98,7 +98,7 @@ class _FormBox extends StatelessWidget {
                 ],
               ),
             ),
-            Space.w(UIInsets.x3),
+            UISpace.w(UIInsets.x3),
             child,
           ],
         ));

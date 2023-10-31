@@ -22,12 +22,12 @@ Widget useCase(BuildContext context) {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Skeleton.circle(size: 40),
-            Space.w(UIInsets.x1),
+            UISpace.w(UIInsets.x1),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Skeleton(width: 200),
-                Space.h(8),
+                UISpace.h(8),
                 const Skeleton(width: 150),
               ],
             )

@@ -65,7 +65,7 @@ class _UISwitchState extends State<UISwitch> {
           children: [
             buildSwitch(),
             if (widget.label != null) ...[
-              Space.w(UIInsets.x1),
+              UISpace.w(UIInsets.x1),
               UIText.label(widget.label!)
             ]
           ],

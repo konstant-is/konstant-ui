@@ -1,4 +1,3 @@
-import 'package:app/components/ui/builders/box_builder.dart';
 import 'package:app/components/ui/button/button_style.dart';
 import 'package:app/components/ui/button/ui_button.dart';
 import 'package:app/components/ui/dialog/ui_dialog.dart';
@@ -94,14 +93,6 @@ class UIDialogBuilder extends StatelessWidget {
           )),
       icon: UIIcons.x,
     );
-    // return BoxBuilder(
-    //   onTap: ,
-    //   style: UIBoxStyle(),
-    //   customChild: true,
-    //   builder: (BuildContext context, focusControl, BoxStyle style) {
-
-    //   },
-    // );
   }
 }
 
@@ -121,7 +112,7 @@ class DialogHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               if (title != null) UIText.lg(title!),
-              if (title != null && subtitle != null) Space.h(UIInsets.x1),
+              if (title != null && subtitle != null) UISpace.h(UIInsets.x1),
               if (subtitle != null)
                 UIText.p(
                   subtitle!,

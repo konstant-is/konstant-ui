@@ -76,7 +76,7 @@ class _TabLayout extends StatelessWidget {
             "Make changes to your account here. Click save when you're done.",
             style: (style) => style.copyWith(color: UIColors.twGray500),
           ),
-          Space.h(24),
+          UISpace.h(24),
           child,
         ],
       ),
@@ -97,12 +97,12 @@ class _Account extends StatelessWidget {
             label: "Name",
             value: "Pedro Duarte",
           ),
-          Space.h(16),
+          UISpace.h(16),
           const UIInput(
             label: "Username",
             value: "@peduarte",
           ),
-          Space.h(16),
+          UISpace.h(16),
           UIButton(text: "Save changes", onTap: () => {})
         ]);
   }
@@ -121,12 +121,12 @@ class _Password extends StatelessWidget {
             label: "Current password",
             obscureText: true,
           ),
-          Space.h(16),
+          UISpace.h(16),
           const UIInput(
             label: "New password",
             obscureText: true,
           ),
-          Space.h(16),
+          UISpace.h(16),
           UIButton(text: "Save changes", onTap: () => {})
         ]);
   }

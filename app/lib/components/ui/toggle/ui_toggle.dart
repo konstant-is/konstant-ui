@@ -156,7 +156,7 @@ class UIToggle extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        if (leading != null) ...[leading!(style), Space.w(UIInsets.x1)],
+        if (leading != null) ...[leading!(style), UISpace.w(UIInsets.x1)],
         child ?? const SizedBox(),
         text == null
             ? const SizedBox()
@@ -168,7 +168,7 @@ class UIToggle extends StatelessWidget {
                 ),
               ),
         if (trailing != null) ...[
-          Space.w(UIInsets.x1),
+          UISpace.w(UIInsets.x1),
           trailing!(style),
         ],
       ],

@@ -107,7 +107,7 @@ class _RadioItem extends StatelessWidget {
                     borderRadius: BorderRadius.circular(radius)),
               ),
             ),
-            Space.w(UIInsets.x2),
+            UISpace.w(UIInsets.x2),
             UIText.label(label)
           ],
         );

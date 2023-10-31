@@ -299,7 +299,7 @@ class UIButton extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         buildLeading(btnStyle),
-        Space.w(UIInsets.half),
+        UISpace.w(UIInsets.half),
         child ?? const SizedBox(),
         text == null
             ? const SizedBox()
@@ -311,7 +311,7 @@ class UIButton extends StatelessWidget {
                   weight: FontWeight.w500,
                 ),
               ),
-        Space.w(UIInsets.half),
+        UISpace.w(UIInsets.half),
         trailing == null ? const SizedBox() : trailing!(btnStyle),
       ],
     );

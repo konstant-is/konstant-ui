@@ -53,7 +53,7 @@ class UIAlert extends StatelessWidget {
           children: [
             if (icon != null) ...[
               icon!,
-              Space.w(UIInsets.x2),
+              UISpace.w(UIInsets.x2),
             ],
             Expanded(child: body()),
           ],
@@ -67,7 +67,7 @@ class UIAlert extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        if (title != null) ...[UIText.lg(title!), Space.h(UIInsets.x1)],
+        if (title != null) ...[UIText.lg(title!), UISpace.h(UIInsets.x1)],
         if (message != null) ...[UIText.p(message!)]
       ],
     );

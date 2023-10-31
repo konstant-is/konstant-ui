@@ -48,7 +48,7 @@ class _UICheckboxState extends State<UICheckbox> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             box(),
-            Space.w(UIInsets.x1),
+            UISpace.w(UIInsets.x1),
             UIText.p(
               widget.label,
               style: (style) => style.copyWith(

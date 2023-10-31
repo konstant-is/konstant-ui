@@ -58,7 +58,7 @@ class _EditProfileDialog extends StatelessWidget with DialogMixin {
                   label: "Name",
                   value: "Pedro Duarte",
                 ),
-                Space.h(UIInsets.x2),
+                UISpace.h(UIInsets.x2),
                 const UIInput(
                   label: "Username",
                   value: "@peduarte",
@@ -90,7 +90,7 @@ class _ShareDialog extends StatelessWidget with DialogMixin {
                   value: "https://ui.konstant.com/docs/installation",
                 ),
               ),
-              Space.w(UIInsets.x1),
+              UISpace.w(UIInsets.x1),
               UIButton.icon(
                   icon: UIIcons.copy,
                   onTap: () => {},
