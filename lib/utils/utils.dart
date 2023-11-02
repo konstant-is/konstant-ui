@@ -78,7 +78,6 @@ Map<String, String> parseColor(Map<String, dynamic> colors) {
   final result = <String, String>{};
 
   colors.forEach((key, value) {
-    print("$key: $value");
     if (value is String) {
       result[key] = value;
     } else if (value is Map<String, dynamic>) {

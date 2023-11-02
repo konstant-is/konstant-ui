@@ -96,7 +96,7 @@ class KUICommandProcessor {
     if (config.widgetbook) {
       componentTemplates.addAll([
         createWidgetbookAppTemplate(Constants.widgetbookFolder),
-        createWidgetbookComponents(Constants.widgetbookFolder)
+        createWidgetbookComponents()
       ]);
 
       scripts.addAll([
