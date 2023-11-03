@@ -41,7 +41,7 @@ final secondary = UIButtonStyle(
 
 final destructive = UIButtonStyle(
   color: UIColors.twRed500,
-  textColor: UIColors.white,
+  textColor: Colors.white,
   hoverStyle: BtnStyle(color: UIColors.twRed400, textColor: Colors.white),
   activeStyle: BtnStyle(color: UIColors.twRed600, textColor: Colors.white),
 );

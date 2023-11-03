@@ -13,7 +13,7 @@ final _style = UIBoxStyle(
 );
 final _badgeStyle = _style.copyWith(
   color: UIColors.twBlue700,
-  textColor: UIColors.white,
+  textColor: Colors.white,
 );
 
 final _secondaryStyle = _style.copyWith(
@@ -28,7 +28,7 @@ final _outlineyStyle = _style.copyWith(
 
 final _destructiveStyle = _style.copyWith(
   color: UIColors.twRed500,
-  textColor: UIColors.white,
+  textColor: Colors.white,
 );
 
 class UIBadge extends StatelessWidget {

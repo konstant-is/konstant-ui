@@ -12,6 +12,7 @@ import 'package:konstant_ui/src/templates.dart';
 import 'package:konstant_ui/utils/dependency_manager.dart';
 import 'package:konstant_ui/utils/file_manager.dart';
 import 'package:konstant_ui/utils/printer.dart';
+import 'package:konstant_ui/utils/string_buffer_utils.dart';
 import 'package:konstant_ui/utils/utils.dart';
 
 /// The main processor for KUI (Konstant UI) commands.
@@ -65,8 +66,10 @@ class KUICommandProcessor {
       }
 
       generateDependencies();
+      dependencyManager.printDeps();
 
       Printer.addedFiles(config.componentPaths());
+      writeComponentsFile();
       config.write();
       Printer.completedMessage(completeMessages);
     } catch (e) {
@@ -214,6 +217,28 @@ class KUICommandProcessor {
       content: template.generateCode(
         packageName: getApplicationName(),
       ),
+    );
+  }
+
+  void writeComponentsFile() {
+    final buffer = StringBufferUtils();
+
+    buffer.writeln("library ui_components;");
+    final compPaths = dependencyManager
+        .getDependencies(resolved: true)
+        .where((element) => element.startsWith("components"))
+        .map((e) => e.replaceFirst("components/ui/", "./ui/"))
+        .toList();
+
+    for (var e in compPaths) {
+      buffer.writeln("export '$e';");
+    }
+
+    fileManager.writeFile(
+      force: true,
+      path:
+          "${Directory.current.path}/${config.path}/components/components.dart",
+      content: buffer.toString(),
     );
   }
 }

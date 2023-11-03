@@ -9,7 +9,7 @@ final tabStyle = UIBoxStyle(
   padding: EdgeInsets.symmetric(vertical: UIInsets.x1),
   textColor: UIColors.twGray600,
   activeStyle: BoxStyle(
-    color: UIColors.white,
+    color: Colors.white,
     textColor: UIColors.twGray950,
     padding: EdgeInsets.symmetric(vertical: UIInsets.x1),
   ),

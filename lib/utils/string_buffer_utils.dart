@@ -59,4 +59,9 @@ class StringBufferUtils {
   }
 
   bool isNull(String? value) => value == null || value == 'null';
+
+  @override
+  String toString() {
+    return _stringBuffer.toString();
+  }
 }
