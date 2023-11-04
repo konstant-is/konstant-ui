@@ -5,8 +5,16 @@ import 'package:konstant_ui/utils/file_manager.dart';
 void main(List<String> args) {
   final commandProcessor = KUICommandProcessor(
     args,
-    config: Config.getConfig(),
+    config: getOrCreateConfig(),
     fileManager: FileManager(),
   );
   commandProcessor.process();
+}
+
+Config getOrCreateConfig() {
+  try {
+    return Config.getConfig();
+  } catch (e) {
+    return Config();
+  }
 }
