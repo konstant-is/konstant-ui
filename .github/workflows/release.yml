@@ -1,0 +1,61 @@
+name: Release Workflow
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+env:
+  NODE_VERSION: 22.6.0
+  PNPM_VERSION: 9.7.1
+  KEEP: '.git .github dist publish'
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js
+      - name: Node setup
+        uses: ./.github/actions/setup
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          pnpm-version: ${{ env.PNPM_VERSION }}
+          pnpm-run-install: true
+
+      # Step 3: Configure Git User
+      - name: Configure Git User
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Build Project
+        run: pnpm run build
+
+      - name: Clean Workspace
+        run: |
+          # Convert KEEP into an array of patterns for exclusion
+          echo "Preserving: $KEEP"
+          for keep_item in $KEEP; do
+            exclusions="$exclusions ! -name $keep_item"
+          done
+
+          # Delete all files and folders except those in KEEP
+          eval "find . -mindepth 1 -maxdepth 1 $exclusions -exec rm -rf {} +"
+
+      - name: Prepare Release Files
+        run: |
+          # Copy publish files back to the root and clean release folder
+          cp -R publish/* .
+          rm -rf publish
+
+          git add .
+          git commit -m "chore(release): prepare release for v${{ github.ref_name }}"
+
+      - name: Push Release Branch
+        run: |
+          git checkout -b release-${{ github.ref_name }}
+          git push origin release-${{ github.ref_name }}

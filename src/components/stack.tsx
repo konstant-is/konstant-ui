@@ -1,45 +1,41 @@
-import { CSSProperties } from "react";
-import { Slot } from "@radix-ui/react-slot";
+import { CSSProperties } from 'react'
+import { Slot } from '@radix-ui/react-slot'
 
-import { rb, ResponsiveValue } from "@/lib/responsive";
-import { cn } from "@/lib/utils";
-import { UIComponentProps } from "@/types";
+import { rb } from '@/lib/responsive'
+import { cn } from '@/lib/utils'
+import type { ResponsiveValue, UIComponentProps } from '@/types'
 
-import css from "./stack.module.scss";
+import css from './stack.module.scss'
 
-type Props = {
-  asChild?: boolean;
-  direction?: ResponsiveValue<CSSProperties["flexDirection"]>;
-} & UIComponentProps;
+export type StackProps = {
+  asChild?: boolean
+  direction?: ResponsiveValue<CSSProperties['flexDirection']>
+  alignItems?: ResponsiveValue<CSSProperties['alignItems']>
+  justify?: ResponsiveValue<CSSProperties['justifyContent']>
+  flex?: ResponsiveValue<CSSProperties['flex']>
+  gap?: ResponsiveValue<CSSProperties['gap']>
+} & UIComponentProps
 
-export const Stack = ({
+export const Stack: React.FC<StackProps> = ({
   asChild,
   style,
-  direction = "row",
   responsive,
+  direction,
+  alignItems,
+  justify,
+  flex,
+  gap,
   ...props
-}: Props) => {
-  const Comp = asChild ? Slot : "div";
+}) => {
+  const Comp = asChild ? Slot : 'div'
 
-  const injectStyles = rb("stack", responsive, {
+  const injectStyles = rb('stack', responsive, {
     direction,
-  });
-  //   const injectStyles = {
-  //     ...resolveBreakpoint(direction, 'stack-direction'),
-  //     ...resolveBreakpoint(direction, 'stack-direction'),
-  //     ...resolveResponsive(responsive, 'stack'),
-  //     // "--stack-direction": 'var(--stack-direction, column)',
-  //     // 'align-items': 'var(--stack-align, stretch)',
-  //     // 'justify-content': 'var(--stack-justify, flex-start)',
-  //     // flex: 'var(--stack-flex, initial)',
-  //     // gap: 'var(--stack-gap, 0)',
-  //   } as CSSProperties
+    alignItems,
+    justify,
+    flex,
+    gap,
+  })
 
-  return (
-    <Comp
-      className={cn(css.ctr)}
-      style={{ ...injectStyles, ...style }}
-      {...props}
-    />
-  );
-};
+  return <Comp className={cn('stack')} style={{ ...injectStyles, ...style }} {...props} />
+}

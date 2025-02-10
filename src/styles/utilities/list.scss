@@ -1,0 +1,24 @@
+ul {
+  &.list {
+    list-style-type: disc;
+    list-style-position: outside;
+    // margin-left: 16px;
+    padding-inline-start: 16px;
+    margin-inline-start: 8px;
+    li {
+      &:has(ul) {
+        // Remove bullet if it contains a nested <ul>
+        list-style-type: none; /* Remove the bullet */
+      }
+    }
+
+    ul {
+      display: block;
+      list-style-position: outside;
+
+      li {
+        padding-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,96 @@
+@use 'sass:map';
+
+$breakpoints: (
+  // Extra small (default)
+  xs: 0px,
+  // Small screens (phones)
+  sm: 600px,
+  // Medium screens (tablets)
+  md: 800px,
+  // Large screens (laptops)
+  lg: 1024px,
+  // Extra large screens (desktops)
+  xl: 1280px,
+  // Ultra large screens (4K monitors)
+  xxl: 1920px
+);
+
+@function breakpoint($key) {
+  @return map.get($breakpoints, $key);
+}
+
+@mixin media-query($type, $key1, $key2: null) {
+  @if $type == min {
+    @media (min-width: #{breakpoint($key1)}) {
+      @content;
+    }
+  } @else if $type == max {
+    @media (max-width: #{breakpoint($key1) - 1}) {
+      @content;
+    }
+  } @else if $type == range and $key2 != null {
+    @media (min-width: #{breakpoint($key1)}) and (max-width: #{breakpoint($key2) - 1}) {
+      @content;
+    }
+  }
+}
+
+@mixin sm {
+  @include media-query(range, sm, md) {
+    @content;
+  }
+}
+
+@mixin md {
+  @include media-query(range, md, lg) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @include media-query(range, lg, xl) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @include media-query(min, xl) {
+    @content;
+  }
+}
+
+@mixin lt-sm {
+  @include media-query(max, sm) {
+    @content;
+  }
+}
+
+@mixin lt-md {
+  @include media-query(max, md) {
+    @content;
+  }
+}
+
+@mixin lt-lg {
+  @include media-query(max, lg) {
+    @content;
+  }
+}
+
+@mixin gt-xs {
+  @include media-query(min, sm) {
+    @content;
+  }
+}
+
+@mixin gt-sm {
+  @include media-query(min, md) {
+    @content;
+  }
+}
+
+@mixin gt-md {
+  @include media-query(min, lg) {
+    @content;
+  }
+}

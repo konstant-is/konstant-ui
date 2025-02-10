@@ -1,0 +1,91 @@
+:root {
+  --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+
+  --font-display: var(--font-sans);
+  --font-body: var(--font-sans);
+  --font-size-12: 0.75rem;
+  --font-size-14: 0.875rem;
+  --font-size-16: 1rem;
+  --font-size-18: 1.125rem;
+  --font-size-20: 1.25rem;
+  --font-size-22: 1.375rem;
+  --font-size-24: 1.5rem;
+  --font-size-26: 1.625rem;
+  --font-size-28: 1.75rem;
+  --font-size-30: 1.875rem;
+  --font-size-32: 2rem;
+  --font-size-36: 2.25rem;
+  --font-size-40: 2.5rem;
+  --font-size-44: 2.75rem;
+  --font-size-48: 3rem;
+  --font-size-52: 3.25rem;
+  --font-size-56: 3.5rem;
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* COLORS */
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* SIZE */
+  --base-inset: 4px;
+  --size-0: 0px;
+  --size-4: var(--base-inset);
+  --size-6: calc(var(--base-inset) * 1.5);
+  --size-8: calc(var(--base-inset) * 2);
+  --size-10: calc(var(--base-inset) * 2.5);
+  --size-12: calc(var(--base-inset) * 3);
+  --size-14: calc(var(--base-inset) * 3.5);
+  --size-16: calc(var(--base-inset) * 4);
+  --size-18: calc(var(--base-inset) * 4.5);
+  --size-20: calc(var(--base-inset) * 5);
+  --size-24: calc(var(--base-inset) * 6);
+  --size-28: calc(var(--base-inset) * 7);
+  --size-30: calc(var(--base-inset) * 7.5);
+  --size-32: calc(var(--base-inset) * 8);
+  --size-40: calc(var(--base-inset) * 10);
+  --size-48: calc(var(--base-inset) * 12);
+  --size-52: calc(var(--base-inset) * 13);
+  --size-56: calc(var(--base-inset) * 14);
+  --size-60: calc(var(--base-inset) * 15);
+  --size-64: calc(var(--base-inset) * 16);
+  --size-72: calc(var(--base-inset) * 18);
+  --size-80: calc(var(--base-inset) * 20);
+  --size-88: calc(var(--base-inset) * 22);
+  --size-96: calc(var(--base-inset) * 24);
+  --size-104: calc(var(--base-inset) * 26);
+  --size-112: calc(var(--base-inset) * 28);
+  --size-120: calc(var(--base-inset) * 30);
+  --size-126: calc(var(--base-inset) * 31.5);
+  --size-128: calc(var(--base-inset) * 32);
+  --size-146: calc(var(--base-inset) * 36.5);
+  --size-154: calc(var(--base-inset) * 38.5);
+  --size-xs: calc(var(--base-inset) * 6);
+  --size-sm: calc(var(--base-inset) * 8);
+  --size-md: calc(var(--base-inset) * 10);
+  --size-lg: calc(var(--base-inset) * 12);
+  --size-xl: calc(var(--base-inset) * 14);
+  --size-2xl: calc(var(--base-inset) * 18);
+  --space-content-horizontal: calc(var(--base-inset) * 4);
+  --space-sm: calc(var(--base-inset) * 4);
+  --space-md: calc(var(--base-inset) * 8);
+  --space-lg: calc(var(--base-inset) * 10);
+  --space-xl: calc(var(--base-inset) * 14);
+  --padding-xs: calc(var(--base-inset) * 2);
+  --padding-sm: calc(var(--base-inset) * 4);
+  --padding-md: calc(var(--base-inset) * 6);
+  --padding-lg: calc(var(--base-inset) * 8);
+  --screen-w-24: 24vw;
+
+  /* SPACING */
+}
