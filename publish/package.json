@@ -10,7 +10,9 @@
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
-    }
+    },
+    "./scss": "./dist/styles.scss",
+    "./scss/mixins": "./dist/styles/mixins/mixins.scss"
   },
   "dependencies": {},
   "peerDependencies": {
