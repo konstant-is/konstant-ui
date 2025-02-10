@@ -1,6 +1,6 @@
 {
   "name": "@konstant/konstant-ui",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Konstant UI components",
   "license": "MIT",
   "type": "module",
