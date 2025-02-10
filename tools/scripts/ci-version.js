@@ -1,8 +1,8 @@
+import { execSync } from 'child_process'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import semver from 'semver'
-import { execSync } from 'child_process'
 
 // Simulate __dirname
 const __filename = fileURLToPath(import.meta.url)
@@ -13,8 +13,8 @@ const incrementVersion = (currentVersion, releaseType) => {
 }
 
 const updateVersion = (releaseType) => {
-  const packageJsonPath = path.resolve(__dirname, '../package.json')
-  const publishPackageJsonPath = path.resolve(__dirname, '../publish/package.json')
+  const packageJsonPath = path.resolve(__dirname, '../../package.json')
+  const publishPackageJsonPath = path.resolve(__dirname, '../../publish/package.json')
 
   try {
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'))
