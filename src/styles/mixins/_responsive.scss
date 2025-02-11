@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:list';
 
 $breakpoints: (
   sm: 600px,
@@ -13,6 +14,17 @@ $breakpoints: (
 // 🔹 Get Breakpoint Value Function
 @function breakpoint($key) {
   @return map.get($breakpoints, $key);
+}
+
+@function responsive($variable, $size, $fallbacks...) {
+  $fallbackResult: ();
+
+  // Append fallbacks in decreasing priority
+  @each $fallback in $fallbacks {
+    $fallbackResult: list.append($fallbackResult, var(--#{$fallback}-#{$variable}), comma);
+  }
+
+  @return var(--#{$size}-#{$variable}, #{$fallbackResult});
 }
 
 // 🔹 Media Query Mixins

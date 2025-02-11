@@ -1,25 +1,44 @@
+import { CSSProperties } from 'react'
 import { Slot } from '@radix-ui/react-slot'
 import clsx from 'clsx'
 
-import { UIComponentProps } from '@/types'
+import { rb } from '@/lib/responsive'
+import { ResponsiveValue, UIComponentProps } from '@/types'
+
+import css from './grid.module.scss'
 
 export type GridProps = UIComponentProps<{
-  cols?: number
-  gutter?: number
   asChild?: boolean
+  cols?: ResponsiveValue<number>
+  rows?: ResponsiveValue<number>
+  gutter?: ResponsiveValue<CSSProperties['gap']>
+  rowGap?: ResponsiveValue<CSSProperties['rowGap']>
+  colGap?: ResponsiveValue<CSSProperties['rowGap']>
 }>
 
-export const Grid: React.FC<GridProps> = ({ cols, gutter, asChild, children, className }) => {
+export const Grid: React.FC<GridProps> = ({
+  cols,
+  rows,
+  gutter,
+  rowGap,
+  colGap,
+  asChild,
+  children,
+  responsive,
+  className,
+  style,
+}) => {
   const Comp = asChild ? Slot : 'div'
 
-  const getStyles = (): React.CSSProperties => {
-    return {
-      ...(cols && { '--grid-cols': cols }),
-      ...(gutter && { '--grid-gutter': `${gutter}px` }),
-    } as React.CSSProperties
-  }
+  const injectStyles = rb('grid', responsive, {
+    cols,
+    rows,
+    gutter,
+    rowGap,
+    colGap,
+  })
   return (
-    <Comp className={clsx('grid', className)} style={getStyles()}>
+    <Comp className={clsx(css.ctr, className)} style={{ ...injectStyles, ...style }}>
       {children}
     </Comp>
   )
