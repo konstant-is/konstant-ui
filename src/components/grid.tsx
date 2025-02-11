@@ -5,8 +5,6 @@ import clsx from 'clsx'
 import { rb } from '@/lib/responsive'
 import { ResponsiveValue, UIComponentProps } from '@/types'
 
-import css from './grid.module.scss'
-
 export type GridProps = UIComponentProps<{
   asChild?: boolean
   cols?: ResponsiveValue<number>
@@ -38,7 +36,7 @@ export const Grid: React.FC<GridProps> = ({
     colGap,
   })
   return (
-    <Comp className={clsx(css.ctr, className)} style={{ ...injectStyles, ...style }}>
+    <Comp className={clsx('grid', className)} style={{ ...injectStyles, ...style }}>
       {children}
     </Comp>
   )

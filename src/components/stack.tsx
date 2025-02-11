@@ -5,8 +5,6 @@ import { rb } from '@/lib/responsive'
 import { cn } from '@/lib/utils'
 import type { ResponsiveValue, UIComponentProps } from '@/types'
 
-import css from './stack.module.scss'
-
 export type StackProps = {
   asChild?: boolean
   direction?: ResponsiveValue<CSSProperties['flexDirection']>
@@ -39,6 +37,6 @@ export const Stack: React.FC<StackProps> = ({
   })
 
   return (
-    <Comp className={cn(css.ctr, className)} style={{ ...injectStyles, ...style }} {...props} />
+    <Comp className={cn('stack', className)} style={{ ...injectStyles, ...style }} {...props} />
   )
 }

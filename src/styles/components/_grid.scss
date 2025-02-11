@@ -1,6 +1,6 @@
-@use '../styles/mixins' as *; // Import all mixins from index.scss
+@use '../mixins/responsive' as *; // Import all mixins from index.scss
 
-.ctr {
+.grid {
   display: grid;
   width: 100%;
 

@@ -19,3 +19,7 @@
 
 // ✅ Import utilities (Forwarded from index.scss)
 @use 'styles/utilities';
+
+// ✅ Components
+@use 'styles/components/grid';
+@use 'styles/components/stack';
