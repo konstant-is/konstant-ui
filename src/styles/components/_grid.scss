@@ -4,16 +4,11 @@
   // Global theme-based default
   // Root variable that will be overridden by breakpoints
 
-  --grid-cols: var(--grid-cols, var(--theme-grid-cols, 12));
-  --grid-gutter: var(--grid-gutter, var(--theme-grid-gutter, 16px));
-  --grid-row-gap: var(--grid-row-gap, var(--theme-grid-row-gap, 16px));
-  --grid-col-gap: var(--grid-col-gap, var(--theme-grid-col-gap, 16px));
-
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(var(--grid-cols), 1fr);
-  grid-row-gap: var(--grid-row-gap, var(--grid-gutter));
-  grid-column-gap: var(--grid-col-gap, var(--grid-gutter));
+  grid-template-columns: repeat(var(--grid-cols, var(--theme-grid-cols, 16)), 1fr);
+  grid-row-gap: var(--grid-row-gap, var(--grid-gutter, var(--theme-grid-gutter)));
+  grid-column-gap: var(--grid-col-gap, var(--grid-gutter, var(--theme-grid-gutter)));
 
   // @include sm {
   //   --grid-cols: var(--sm-grid-cols, var(--grid-cols));
