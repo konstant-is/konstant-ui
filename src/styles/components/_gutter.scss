@@ -1,0 +1,12 @@
+.gutter {
+  padding-left: var(--gutter-h);
+  padding-right: var(--gutter-h);
+
+  &_right {
+    padding-right: var(--gutter-h);
+  }
+
+  &_left {
+    padding-left: var(--gutter-h);
+  }
+}
