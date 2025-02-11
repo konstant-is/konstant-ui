@@ -1,15 +1,21 @@
-@use './styles/preflight.css';
+// @use './styles/preflight.css';
 
-@use './styles/mixins/mixins';
-@use './styles/mixins/spacing.scss';
-@use './styles/mixins/breakpoints';
+// @use './styles/mixins/mixins';
+// @use './styles/variables';
 
-@use './styles/variables';
+// @use './styles/utilities/utils';
+// @use './styles/utilities/flex';
+// @use './styles/utilities/stack';
+// @use './styles/utilities/grid';
+// @use './styles/utilities/text';
+// @use './styles/utilities/list';
 
-@use './styles/utilities/utils';
-@use './styles/utilities/flex';
-@use './styles/utilities/stack';
-@use './styles/utilities/grid';
-@use './styles/utilities/spacing';
-@use './styles/utilities/text';
-@use './styles/utilities/list';
+// ✅ Import global resets
+@use 'styles/preflight.css';
+
+// ✅ Import core styles
+@use 'styles/variables';
+@use 'styles/mixins';
+
+// ✅ Import utilities (Forwarded from index.scss)
+@use 'styles/utilities';

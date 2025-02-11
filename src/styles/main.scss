@@ -1,0 +1,12 @@
+// ✅ Import global resets
+@use 'preflight';
+
+// ✅ Import core styles
+@use 'variables';
+@use 'mixins';
+
+// ✅ Import utilities (Forwarded from index.scss)
+@use 'utilities';
+
+// ✅ Import components (Forwarded from index.scss)
+@use 'components';
