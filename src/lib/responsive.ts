@@ -57,8 +57,6 @@ export function rb(
 
       if (value !== undefined) processResponsiveValue(resolvedKey, value)
     })
-
-    console.log(result)
   }
 
   // Process extra properties (e.g., direction, alignment)
@@ -69,6 +67,5 @@ export function rb(
     })
   }
 
-  console.log({ result })
   return result
 }
