@@ -15,7 +15,7 @@
 
 // ✅ Import core styles
 @use 'styles/variables';
-@use 'styles/mixins';
+@use 'styles/mixins/index';
 
 // ✅ Import utilities (Forwarded from index.scss)
 @use 'styles/utilities';

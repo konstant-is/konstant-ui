@@ -18,6 +18,7 @@ export type StackProps = {
 
 export const Stack: React.FC<StackProps> = ({
   asChild,
+  className,
   style,
   responsive,
   direction,
@@ -37,5 +38,7 @@ export const Stack: React.FC<StackProps> = ({
     gap,
   })
 
-  return <Comp className={cn('stack')} style={{ ...injectStyles, ...style }} {...props} />
+  return (
+    <Comp className={cn(css.ctr, className)} style={{ ...injectStyles, ...style }} {...props} />
+  )
 }

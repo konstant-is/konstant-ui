@@ -2,31 +2,31 @@ import { CSSProperties } from 'react'
 
 import { BreakpointValues, ResponsiveStyle, ResponsiveValue } from '@/types.js'
 
-// 🔹 Helper function to create CSS variable
-const createVariable = <T>(bp: string, variable: string, value?: T) =>
-  value !== undefined ? { [`--${bp}-${variable}`]: value } : {}
+// // 🔹 Helper function to create CSS variable
+// const createVariable = <T>(bp: string, variable: string, value?: T) =>
+//   value !== undefined ? { [`--${bp}-${variable}`]: value } : {}
 
-// 🔹 Main function to resolve breakpoints
-export function resolveBreakpoints<T>(
-  value: ResponsiveValue<T>,
-  cssVariable: string,
-): CSSProperties {
-  if (value && typeof value === 'object' && !Array.isArray(value)) {
-    const responsiveValue = value as BreakpointValues<T>
+// // 🔹 Main function to resolve breakpoints
+// export function resolveBreakpoints<T>(
+//   value: ResponsiveValue<T>,
+//   cssVariable: string,
+// ): CSSProperties {
+//   if (value && typeof value === 'object' && !Array.isArray(value)) {
+//     const responsiveValue = value as BreakpointValues<T>
 
-    return {
-      [cssVariable]: responsiveValue.sm,
-      ...createVariable('sm', cssVariable, responsiveValue.sm),
-      ...createVariable('md', cssVariable, responsiveValue.md),
-      ...createVariable('lg', cssVariable, responsiveValue.lg),
-    }
-  }
+//     return {
+//       [cssVariable]: responsiveValue.sm,
+//       ...createVariable('sm', cssVariable, responsiveValue.sm),
+//       ...createVariable('md', cssVariable, responsiveValue.md),
+//       ...createVariable('lg', cssVariable, responsiveValue.lg),
+//     }
+//   }
 
-  // If `value` is a single value, apply it to all breakpoints
-  return {
-    [`--${cssVariable}`]: value,
-  }
-}
+//   // If `value` is a single value, apply it to all breakpoints
+//   return {
+//     [`--${cssVariable}`]: value,
+//   }
+// }
 
 export function rb(
   prefix: string | undefined,

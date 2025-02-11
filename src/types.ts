@@ -4,6 +4,7 @@ export type BreakpointValues<T> = {
   sm?: T
   md?: T
   lg?: T
+  xl?: T
 }
 
 export type ResponsiveValue<T> = T | BreakpointValues<T>

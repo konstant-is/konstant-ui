@@ -1,0 +1,87 @@
+@use 'sass:map';
+@use '../styles/mixins' as *; // Import all mixins from index.scss
+
+@function responsive-stack($variable, $size, $fallbacks...) {
+  $fallbackResult: ();
+
+  // Append fallbacks in decreasing priority
+  @each $fallback in $fallbacks {
+    $fallbackResult: append($fallbackResult, var(--#{$fallback}-#{$variable}), comma);
+  }
+
+  @return var(--#{$size}-#{$variable}, #{$fallbackResult});
+}
+
+.ctr {
+  display: flex;
+  padding: var(--stack-padding, 0px);
+  flex-direction: var(--stack-direction, row);
+  align-items: var(--stack-align, stretch);
+  justify-content: var(--stack-justify, flex-start);
+  flex: var(--stack-flex, initial);
+  gap: var(--stack-gap, 0px);
+
+  // sm: small devices
+  @include sm {
+    --stack-direction: var(--sm-stack-direction);
+    --stack-align: var(--sm-stack-align);
+    --stack-justify: var(--sm-stack-justify);
+    --stack-padding: var(--sm-stack-padding);
+    --stack-gap: var(--sm-stack-gap);
+  }
+
+  @include md {
+    --stack-direction: #{responsive-stack(stack-direction, md, sm)};
+    --stack-align: #{responsive-stack(stack-align, md, sm)};
+    --stack-justify: #{responsive-stack(stack-justify, md, sm)};
+    --stack-padding: #{responsive-stack(stack-padding, md, sm)};
+    --stack-gap: #{responsive-stack(stack-gap, md, sm)};
+    // --stack-direction: var(--md-stack-direction, var(--sm-stack-direction));
+    // --stack-align: var(--md-stack-align, var(--sm-stack-align));
+    // --stack-justify: var(--md-stack-justify, var(--sm-stack-justify));
+    // --stack-padding: var(--md-stack-padding, var(--sm-stack-padding));
+    // --stack-gap: var(--md-stack-gap, var(--sm-stack-gap));
+  }
+
+  @include lg {
+    --stack-direction: #{responsive-stack(stack-direction, lg, md, sm)};
+    --stack-align: #{responsive-stack(stack-align, lg, md, sm)};
+    --stack-justify: #{responsive-stack(stack-justify, lg, md, sm)};
+    --stack-padding: #{responsive-stack(stack-padding, lg, md, sm)};
+    --stack-gap: #{responsive-stack(stack-gap, lg, md, sm)};
+
+    // --stack-direction: var(
+    //   --lg-stack-direction,
+    //   var(--md-stack-direction, var(--sm-stack-direction))
+    // );
+    // --stack-align: var(--lg-stack-align, var(--md-stack-align, var(--sm-stack-align)));
+    // --stack-justify: var(--lg-stack-justify, var(--md-stack-justify, var(--sm-stack-justify)));
+    // --stack-padding: var(--lg-stack-padding, var(--md-stack-padding, var(--sm-stack-padding)));
+    // --stack-gap: var(--lg-stack-gap, var(--md-stack-gap, var(--sm-stack-gap)));
+  }
+
+  @include xl {
+    --stack-direction: #{responsive-stack(stack-direction, xl, lg, md, sm)};
+    --stack-align: #{responsive-stack(stack-align, xl, lg, md, sm)};
+    --stack-justify: #{responsive-stack(stack-justify, xl, lg, md, sm)};
+    --stack-padding: #{responsive-stack(stack-padding, xl, lg, md, sm)};
+    --stack-gap: #{responsive-stack(stack-gap, xl, lg, md, sm)};
+    // --stack-direction: var(
+    //   --xl-stack-direction,
+    //   var(--lg-stack-direction, var(--md-stack-direction, var(--sm-stack-direction)))
+    // );
+    // --stack-align: var(
+    //   --xl-stack-align,
+    //   var(--lg-stack-align, var(--md-stack-align, var(--sm-stack-align)))
+    // );
+    // --stack-justify: var(
+    //   --xl-stack-justify,
+    //   var(--lg-stack-justify, var(--md-stack-justify, var(--sm-stack-justify)))
+    // );
+    // --stack-padding: var(
+    //   --xl-stack-padding,
+    //   var(--lg-stack-padding, var(--md-stack-padding, var(--sm-stack-padding)))
+    // );
+    // --stack-gap: var(--xl-stack-gap, var(--lg-stack-gap, var(--md-stack-gap, var(--sm-stack-gap))));
+  }
+}
