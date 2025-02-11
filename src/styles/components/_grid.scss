@@ -1,55 +1,62 @@
 @use '../mixins/responsive' as *; // Import all mixins from index.scss
 
 .grid {
+  // Global theme-based default
+  // Root variable that will be overridden by breakpoints
+
+  --grid-cols: var(--grid-cols, var(--theme-grid-cols, 12));
+  --grid-gutter: var(--grid-gutter, var(--theme-grid-gutter, 16px));
+  --grid-row-gap: var(--grid-row-gap, var(--theme-grid-row-gap, 16px));
+  --grid-col-gap: var(--grid-col-gap, var(--theme-grid-col-gap, 16px));
+
   display: grid;
   width: 100%;
-
   grid-template-columns: repeat(var(--grid-cols), 1fr);
   grid-row-gap: var(--grid-row-gap, var(--grid-gutter));
   grid-column-gap: var(--grid-col-gap, var(--grid-gutter));
 
-  @include sm {
-    --grid-cols: var(--sm-grid-cols, var(--grid-cols));
-    --grid-gutter: var(--sm-grid-gutter, var(--grid-gutter));
-    --grid-row-gap: var(--sm-grid-row-gap, var(--grid-row-gap));
-    --grid-col-gap: var(--sm-grid-col-gap, var(--grid-col-gap));
-  }
+  // @include sm {
+  //   --grid-cols: var(--sm-grid-cols, var(--grid-cols));
+  //   --grid-gutter: var(--sm-grid-gutter, var(--grid-gutter));
+  //   --grid-row-gap: var(--sm-grid-row-gap, var(--grid-row-gap));
+  //   --grid-col-gap: var(--sm-grid-col-gap, var(--grid-col-gap));
+  // }
 
-  @include md {
-    --grid-cols: var(--md-grid-cols, var(--grid-cols));
-    --grid-gutter: var(--md-grid-gutter, var(--grid-gutter));
-    --grid-row-gap: var(--md-grid-row-gap, var(--grid-row-gap));
-    --grid-col-gap: var(--md-grid-col-gap, var(--grid-col-gap));
+  // @include md {
+  //   --grid-cols: var(--md-grid-cols, var(--grid-cols));
+  //   --grid-gutter: var(--md-grid-gutter, var(--grid-gutter));
+  //   --grid-row-gap: var(--md-grid-row-gap, var(--grid-row-gap));
+  //   --grid-col-gap: var(--md-grid-col-gap, var(--grid-col-gap));
 
-    // --grid-cols: #{responsive(grid-cols, md, sm)};
-    // --grid-gutter: #{responsive(grid-gutter, md, sm)};
-    // --grid-row-gap: #{responsive(grid-row-gap, md, sm)};
-    // --grid-col-gap: #{responsive(grid-col-gap, md, sm)};
-  }
+  //   // --grid-cols: #{responsive(grid-cols, md, sm)};
+  //   // --grid-gutter: #{responsive(grid-gutter, md, sm)};
+  //   // --grid-row-gap: #{responsive(grid-row-gap, md, sm)};
+  //   // --grid-col-gap: #{responsive(grid-col-gap, md, sm)};
+  // }
 
-  @include lg {
-    --grid-cols: var(--lg-grid-cols, var(--grid-cols));
-    --grid-gutter: var(--lg-grid-gutter, var(--grid-gutter));
-    --grid-row-gap: var(--lg-grid-row-gap, var(--grid-row-gap));
-    --grid-col-gap: var(--lg-grid-col-gap, var(--grid-col-gap));
+  // @include lg {
+  //   --grid-cols: var(--lg-grid-cols, var(--grid-cols));
+  //   --grid-gutter: var(--lg-grid-gutter, var(--grid-gutter));
+  //   --grid-row-gap: var(--lg-grid-row-gap, var(--grid-row-gap));
+  //   --grid-col-gap: var(--lg-grid-col-gap, var(--grid-col-gap));
 
-    // --grid-cols: #{responsive(grid-cols, lg, md, sm)};
-    // --grid-gutter: #{responsive(grid-gutter, lg, md, sm)};
-    // --grid-row-gap: #{responsive(grid-row-gap, lg, md, sm)};
-    // --grid-col-gap: #{responsive(grid-col-gap, lg, md, sm)};
-  }
+  //   // --grid-cols: #{responsive(grid-cols, lg, md, sm)};
+  //   // --grid-gutter: #{responsive(grid-gutter, lg, md, sm)};
+  //   // --grid-row-gap: #{responsive(grid-row-gap, lg, md, sm)};
+  //   // --grid-col-gap: #{responsive(grid-col-gap, lg, md, sm)};
+  // }
 
-  @include xl {
-    --grid-cols: var(--xl-grid-cols, var(--grid-cols));
-    --grid-gutter: var(--xl-grid-gutter, var(--grid-gutter));
-    --grid-row-gap: var(--xl-grid-row-gap, var(--grid-row-gap));
-    --grid-col-gap: var(--xl-grid-col-gap, var(--grid-col-gap));
+  // @include xl {
+  //   --grid-cols: var(--xl-grid-cols, var(--grid-cols));
+  //   --grid-gutter: var(--xl-grid-gutter, var(--grid-gutter));
+  //   --grid-row-gap: var(--xl-grid-row-gap, var(--grid-row-gap));
+  //   --grid-col-gap: var(--xl-grid-col-gap, var(--grid-col-gap));
 
-    // --grid-cols: #{responsive(grid-cols, xl, lg, md, sm)};
-    // --grid-gutter: #{responsive(grid-gutter, xl, lg, md, sm)};
-    // --grid-row-gap: #{responsive(grid-row-gap, xl, lg, md, sm)};
-    // --grid-col-gap: #{responsive(grid-col-gap, xl, lg, md, sm)};
-  }
+  //   // --grid-cols: #{responsive(grid-cols, xl, lg, md, sm)};
+  //   // --grid-gutter: #{responsive(grid-gutter, xl, lg, md, sm)};
+  //   // --grid-row-gap: #{responsive(grid-row-gap, xl, lg, md, sm)};
+  //   // --grid-col-gap: #{responsive(grid-col-gap, xl, lg, md, sm)};
+  // }
 }
 
 @mixin generate-cols($max) {

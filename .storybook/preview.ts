@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react'
 
-import './globals.css'
+import './globals.scss'
 import '../src/styles/styles.scss'
 
 const preview: Preview = {
