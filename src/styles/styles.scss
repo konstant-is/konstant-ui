@@ -11,16 +11,16 @@
 // @use './styles/utilities/list';
 
 // ✅ Import global resets
-@use 'styles/preflight.css';
+@use 'preflight.css';
 
 // ✅ Import core styles
-@use 'styles/variables';
-@use 'styles/mixins/index';
+@use 'variables';
+@use 'mixins';
 
 // ✅ Import utilities (Forwarded from index.scss)
-@use 'styles/utilities';
+@use 'utilities';
 
 // ✅ Components
-@use 'styles/components/grid';
-@use 'styles/components/stack';
-@use 'styles/components/gutter';
+@use 'components/grid';
+@use 'components/stack';
+@use 'components/gutter';

@@ -20,7 +20,7 @@ export const Gutter: React.FC<Props> = ({
 
   return (
     <Comp
-      className={clsx('gutter', className, {
+      className={clsx(className, {
         gutter: left && right,
         gutter_left: left && !right,
         gutter_right: right && !left,

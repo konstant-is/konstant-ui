@@ -11,8 +11,8 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
-    "./scss": "./dist/styles.scss",
-    "./scss/mixins": "./dist/styles/mixins/mixins.scss"
+    "./scss": "./dist/styles/styles.scss",
+    "./scss/mixins": "./dist/styles/mixins.scss"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",

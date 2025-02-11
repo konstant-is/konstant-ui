@@ -9,10 +9,10 @@
   grid-column-gap: var(--grid-col-gap, var(--grid-gutter));
 
   @include sm {
-    --grid-cols: var(--sm-grid-cols);
-    --grid-gutter: var(--sm-grid-gutter);
-    --grid-row-gap: var(--sm-grid-row-gap);
-    --grid-col-gap: var(--sm-grid-col-gap);
+    --grid-cols: var(--sm-grid-cols, var(--grid-cols));
+    --grid-gutter: var(--sm-grid-gutter, var(--grid-gutter));
+    --grid-row-gap: var(--sm-grid-row-gap, var(--grid-row-gap));
+    --grid-col-gap: var(--sm-grid-col-gap, var(--grid-col-gap));
   }
 
   @include md {
@@ -36,3 +36,20 @@
     --grid-col-gap: #{responsive(grid-col-gap, xl, lg, md, sm)};
   }
 }
+
+@mixin generate-cols($max) {
+  @for $i from 1 through $max {
+    .cols-#{$i} {
+      grid-column: span #{$i} / span #{$i};
+    }
+
+    .cols-md-#{$i} {
+      @include gt-md {
+        grid-column: span #{$i} / span #{$i};
+      }
+    }
+  }
+}
+
+// Generate col-start classes for columns 1 to 16
+@include generate-cols(16);
