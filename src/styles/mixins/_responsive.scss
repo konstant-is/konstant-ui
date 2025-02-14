@@ -8,7 +8,7 @@ $breakpoints: (
   // Tablets (601px - 960px)
   lg: 1200px,
   // Laptops (961px - 1200px)
-  xl: 1440px, // Desktops (1201px and up)
+  xl: 1201px, // Desktops (1201px and up)
 );
 
 // 🔹 Get Breakpoint Value Function
@@ -69,7 +69,7 @@ $breakpoints: (
 
 // Desktops (1200px and up)
 @mixin xl {
-  @include media-min(breakpoint(xl)) {
+  @include media-min(breakpoint(lg) + 1) {
     @content;
   }
 }
