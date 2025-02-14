@@ -74,11 +74,25 @@ $breakpoints: (
   }
 }
 
+@mixin gt-sm {
+  @include media-min(breakpoint(sm)) {
+    @content;
+  }
+}
+
 @mixin gt-md {
   @include media-min(breakpoint(md)) {
     @content;
   }
 }
+
+@mixin gt-lg {
+  @include media-min(breakpoint(lg)) {
+    @content;
+  }
+}
+
+
 
 // @mixin md {
 //   @include media-query(range, md, lg) {
