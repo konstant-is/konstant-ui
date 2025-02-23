@@ -1,58 +1,26 @@
 {
   "name": "@konstant/konstant-ui",
   "version": "0.0.22",
-  "description": "Konstant UI components",
-  "license": "MIT",
   "type": "module",
-  "scripts": {
-    "build": "pnpm ci:clean && tsup && pnpm ci:copyfiles",
-    "ci:copyfiles": "copyfiles -u 1 \"src/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png,json}\" dist/",
-    "ci:clean": "rimraf {dist,*.tsbuildinfo}",
-    "ci:version": "node tools/scripts/ci-version.js",
-    "ci:tag": "node tools/scripts/tag.js",
-    "ci:patch": "pnpm ci:version patch && pnpm ci:tag",
-    "lint": "eslint ./src",
-    "lint:fix": "eslint ./src --fix",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./scss": "./dist/styles/styles.scss",
+    "./scss/mixins": "./dist/styles/mixins.scss"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
     "clsx": "^2.1.1",
-    "next": "^15.1.6",
+    "next": "^15.1.6"
+  },
+  "peerDependencies": {
     "react": "^19",
     "react-dom": "^19"
-  },
-  "devDependencies": {
-    "@chromatic-com/storybook": "^3.2.4",
-    "@eslint/eslintrc": "^3",
-    "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
-    "@storybook/addon-essentials": "^8.5.3",
-    "@storybook/addon-interactions": "^8.5.3",
-    "@storybook/addon-onboarding": "^8.5.3",
-    "@storybook/blocks": "^8.5.3",
-    "@storybook/nextjs": "^8.5.3",
-    "@storybook/react": "^8.5.3",
-    "@storybook/test": "^8.5.3",
-    "@types/node": "^22",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "copyfiles": "^2.4.1",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.5",
-    "eslint-plugin-storybook": "^0.11.2",
-    "prettier": "^3.4.2",
-    "rimraf": "^6.0.1",
-    "sass": "^1.84.0",
-    "semver": "^7.6.3",
-    "sort-package-json": "^2.10.0",
-    "storybook": "^8.5.3",
-    "tsup": "^8.3.6",
-    "typescript": "^5"
-  },
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
   }
 }
