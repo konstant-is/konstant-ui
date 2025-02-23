@@ -1,4 +1,4 @@
-.flex {
+:where(.flex) {
   display: flex;
 
   &-row {
@@ -12,7 +12,7 @@
   }
 }
 
-.justify-content {
+:where(.justify-content) {
   &-start {
     justify-content: flex-start;
   }
@@ -38,7 +38,7 @@
   }
 }
 
-.justify-items {
+:where(.justify-items) {
   &-start {
     justify-items: flex-start;
   }

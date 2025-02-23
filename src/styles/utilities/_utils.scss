@@ -1,7 +1,7 @@
-.relative {
+:where(.relative) {
   position: relative;
 }
 
-.absolute {
+:where(.absolute) {
   position: absolute;
 }

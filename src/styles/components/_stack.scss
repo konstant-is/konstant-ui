@@ -1,7 +1,7 @@
 @use 'sass:map';
 @use '../mixins' as *; // Import all mixins from index.scss
 
-.stack {
+:where(.stack) {
   display: flex;
   padding: var(--stack-padding, 0px);
   flex-direction: var(--stack-direction, row);

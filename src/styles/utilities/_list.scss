@@ -1,4 +1,4 @@
-ul {
+:where(ul) {
   &.list {
     list-style-type: disc;
     list-style-position: outside;

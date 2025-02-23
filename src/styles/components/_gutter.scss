@@ -1,4 +1,4 @@
-.gutter {
+:where(.gutter) {
   padding-left: var(--gutter-h);
   padding-right: var(--gutter-h);
 

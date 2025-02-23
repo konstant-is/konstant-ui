@@ -1,4 +1,4 @@
-.font {
+:where(.font) {
   &-light {
     font-weight: 300;
   }
@@ -19,7 +19,7 @@
   }
 }
 
-.text {
+:where(.text) {
   &-12 {
     font-size: var(--font-size-12);
   }
