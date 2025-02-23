@@ -1,6 +1,6 @@
 @use '../mixins/responsive' as *; // Import all mixins from index.scss
 
-:where(.grid) {
+.grid {
   // Global theme-based default
   // Root variable that will be overridden by breakpoints
 
@@ -56,17 +56,17 @@
 
 @mixin generate-cols($max) {
   @for $i from 1 through $max {
-    :where(.cols-#{$i}) {
+    .cols-#{$i} {
       grid-column: span #{$i} / span #{$i};
     }
 
-    :where(.cols-md-#{$i}) {
+    .cols-md-#{$i} {
       @include gt-md {
         grid-column: span #{$i} / span #{$i};
       }
     }
 
-    :where(.cols-lg-#{$i}) {
+    .cols-lg-#{$i} {
       @include gt-md {
         grid-column: span #{$i} / span #{$i};
       }

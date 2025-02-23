@@ -1,5 +1,6 @@
-:where(.flex) {
+.flex {
   display: flex;
+
 
   &-row {
     display: flex;
@@ -12,7 +13,9 @@
   }
 }
 
-:where(.justify-content) {
+
+
+.justify-content {
   &-start {
     justify-content: flex-start;
   }
@@ -38,7 +41,7 @@
   }
 }
 
-:where(.justify-items) {
+.justify-items {
   &-start {
     justify-items: flex-start;
   }
