@@ -1,0 +1,104 @@
+@use 'sass:map';
+@use 'styles/tokens' as tokens;
+@use 'styles/utils' as *;
+@use 'styles/rules' as rules;
+
+.box {
+  position: relative;
+}
+
+@include responsive(display, rules.$display, display);
+@include responsive('position', rules.$position, position);
+@include responsive('overflow', rules.$overflow, overflow);
+@include responsive('bg', tokens.$color, background-color);
+@include responsive('color', tokens.$color, color);
+
+@include responsive('w', tokens.$width, width);
+@include responsive('min-w', tokens.$minWidth, min-width);
+@include responsive('h', tokens.$height, height);
+@include responsive('opacity', tokens.$opacity, opacity);
+@include responsive('z', tokens.$zIndex, z-index);
+
+// Padding
+@include responsive('p', tokens.$space, padding);
+@include responsive('pt', tokens.$space, padding-top);
+@include responsive('pb', tokens.$space, padding-bottom);
+@include responsive('pl', tokens.$space, padding-left);
+@include responsive('pr', tokens.$space, padding-right);
+
+@include responsive-pair('py', tokens.$space, padding-top, padding-bottom);
+@include responsive-pair('px', tokens.$space, padding-left, padding-right);
+// End padding
+
+// Margin
+@include responsive('m', tokens.$space, margin);
+@include responsive('mt', tokens.$space, margin-top);
+@include responsive('mb', tokens.$space, margin-bottom);
+@include responsive('ml', tokens.$space, margin-left);
+@include responsive('mr', tokens.$space, margin-right);
+
+@each $bp in map.keys(tokens.$breakpoints) {
+  @each $key, $val in tokens.$space {
+    @include mq($bp) {
+      .mx-#{$bp}-#{$key} {
+        margin-left: $val;
+        margin-right: $val;
+      }
+      .my-#{$bp}-#{$key} {
+        margin-top: $val;
+        margin-bottom: $val;
+      }
+    }
+  }
+}
+// End margin
+
+// Flex
+@include responsive('direction', rules.$flex-direction, flex-direction);
+@include responsive('wrap', rules.$flex-wrap, flex-wrap);
+@include responsive('shrink', rules.$flex-shrink, flex-shrink);
+@include responsive('grow', rules.$flex-grow, flex-grow);
+@include responsive('items', rules.$align-items, align-items);
+@include responsive('self', rules.$align-self, align-self);
+@include responsive('justify', rules.$justify-content, justify-content);
+@include responsive('gap', tokens.$space, gap);
+// End Flex
+
+// Border
+@include responsive('border', rules.$border-style, border-style);
+@include responsive('border-width', tokens.$borderWidth, border-width);
+@include responsive('border-top-width', tokens.$borderWidth, border-top-width);
+@include responsive('border-right-width', tokens.$borderWidth, border-right-width);
+@include responsive('border-bottom-width', tokens.$borderWidth, border-bottom-width);
+@include responsive('border-left-width', tokens.$borderWidth, border-left-width);
+@include responsive('rounded', tokens.$borderRadius, border-radius);
+@include responsive('border-color', tokens.$borderColor, border-color);
+// --Border
+
+// Breakout
+$breakout-spacing: (
+  none: 0,
+  sm: calc(-1 * (var(--gutter) / 2)),
+  // md: map.get(tokens.$space, '4'),
+  // 48px
+  lg: var(--gutter),
+);
+
+@each $key, $val in $breakout-spacing {
+  .breakout-#{$key} {
+    margin-left: #{$val};
+    margin-right: #{$val};
+  }
+}
+
+@each $bp in map.keys(tokens.$breakpoints) {
+  @each $key, $val in $breakout-spacing {
+    @include mq($bp) {
+      .breakout-#{$bp}-#{$key} {
+        margin-left: calc(-1 * #{$val});
+        margin-right: calc(-1 * #{$val});
+      }
+    }
+  }
+}
+// --- Breakout

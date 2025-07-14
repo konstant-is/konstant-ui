@@ -1,0 +1,17 @@
+@use 'styles/utils' as utils;
+
+.gutter {
+  position: relative;
+  width: 100%;
+  min-width: 320px;
+  max-width: 1616px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+
+  // @include utils.mq(md) {
+  //   padding-left: var(--gutter-lg);
+  //   padding-right: var(--gutter-lg);
+  // }
+}

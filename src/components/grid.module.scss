@@ -1,0 +1,41 @@
+@use 'sass:map';
+@use 'styles/utils' as *;
+@use 'styles/tokens' as tokens;
+
+.grid {
+  display: grid;
+  width: 100%;
+}
+
+.collapse {
+  $md: map.get(tokens.$breakpoints, 'md');
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@include responsive('cols', tokens.$gridCols, grid-template-columns);
+
+@include responsive('col-start', tokens.$colStart, grid-column-start);
+
+@include responsive('gap', tokens.$space, gap);
+
+@include responsive-col-span(tokens.$colSpan);
+
+@for $start from 1 through 12 {
+  @for $span from 1 through (12 - $start + 1) {
+    .col-start-#{$start}-span-#{$span} {
+      grid-column: #{$start} / span #{$span};
+    }
+  }
+}
+.center {
+  grid-column: 1 / -1;
+  @include mq(md) {
+    grid-column: 3 / 11;
+  }
+
+  @include mq(lg) {
+    grid-column: 3 / 11;
+  }
+}

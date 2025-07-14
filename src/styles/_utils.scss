@@ -1,0 +1,133 @@
+@use 'sass:map';
+@use 'sass:string';
+@use 'sass:meta';
+@use 'tokens' as tokens;
+@use 'rules' as *;
+
+$breakpoints: tokens.$breakpoints;
+
+@function token($map, $key) {
+  @return unquote(map.get($map, $key));
+}
+
+@mixin apply-token($property, $map, $key) {
+  #{$property}: unquote(map.get($map, $key));
+}
+
+// Media query mixin
+// @mixin mq($size) {
+//   $query: map.get($breakpoints, $size);
+
+//   @if $query {
+//     @media #{$query} {
+//       @content;
+//     }
+//   } @else {
+//     @warn "Breakpoint #{$size} not found in $breakpoints map.";
+//   }
+// }
+@mixin mq($size) {
+  $query: string.unquote(map.get($breakpoints, $size));
+
+  @if $query {
+    @media screen and (min-width: #{$query}) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint #{$size} not found in $breakpoints map.";
+  }
+}
+
+@mixin responsive-block-with($bp, $property, $value) {
+  @if $bp == xs {
+    #{$property}: $value;
+  } @else {
+    @include mq($bp) {
+      #{$property}: $value;
+    }
+  }
+}
+
+@mixin responsive($prefix, $map, $property) {
+  @each $bp in map.keys($breakpoints) {
+    @each $key, $value in $map {
+      $class: if($bp == xs, '#{$prefix}-#{$key}', '#{$prefix}-#{$bp}-#{$key}');
+
+      // Determine safe value
+      $final-value: if(meta.type-of($value) == 'string', string.unquote($value), $value);
+
+      @if $bp == xs {
+        .#{$class} {
+          #{$property}: $final-value;
+        }
+      } @else {
+        @include mq($bp) {
+          .#{$class} {
+            #{$property}: $final-value;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin responsive-pair($prefix, $map, $prop1, $prop2) {
+  @each $bp, $query in $breakpoints {
+    @each $key, $val in $map {
+      $class: if($bp == xs, '#{$prefix}-#{$key}', '#{$prefix}-#{$bp}-#{$key}');
+
+      @if $bp == xs {
+        .#{$class} {
+          #{$prop1}: string.unquote($val);
+          #{$prop2}: string.unquote($val);
+        }
+      } @else {
+        @include mq($bp) {
+          .#{$class} {
+            #{$prop1}: string.unquote($val);
+            #{$prop2}: string.unquote($val);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive mixin specifically for col-span with special "full" handling
+@mixin responsive-col-span($map) {
+  @each $bp, $query in $breakpoints {
+    @each $key, $value in $map {
+      $class: if($bp == xs, 'col-span-#{$key}', 'col-span-#{$bp}-#{$key}');
+
+      // Full span case
+      @if $key == 'full' {
+        @if $bp == xs {
+          .#{$class} {
+            grid-column: 1 / -1;
+          }
+        } @else {
+          @include mq($bp) {
+            .#{$class} {
+              grid-column: 1 / -1;
+            }
+          }
+        }
+      }
+
+      // Normal col-span case
+      @else {
+        @if $bp == xs {
+          .#{$class} {
+            grid-column: span #{$key} / span #{$key};
+          }
+        } @else {
+          @include mq($bp) {
+            .#{$class} {
+              grid-column: span #{$key} / span #{$key};
+            }
+          }
+        }
+      }
+    }
+  }
+}

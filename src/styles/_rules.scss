@@ -1,0 +1,81 @@
+$display: (
+  block: block,
+  inline: inline,
+  inlineBlock: inline-block,
+  flex: flex,
+  grid: grid,
+  none: none,
+);
+
+$position: (
+  absolute: absolute,
+  relative: relative,
+  fixed: fixed,
+  static: static,
+  sticky: sticky,
+);
+
+$overflow: (
+  visible: visible,
+  hidden: hidden,
+  scroll: scroll,
+  auto: auto,
+  initial: initial,
+);
+
+///
+/// FLEX PROPERTIES
+
+$flex-direction: (
+  row: row,
+  column: column,
+  rowReverse: row-reverse,
+  columnReverse: column-reverse,
+);
+
+$flex-wrap: (
+  nowrap: nowrap,
+  wrap: wrap,
+  wrapReverse: wrap-reverse,
+);
+
+$flex-shrink: (
+  0: 0,
+  1: 1,
+);
+
+$flex-grow: (
+  0: 0,
+  1: 1,
+);
+
+$align-items: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  stretch: stretch,
+  baseline: baseline,
+);
+
+$align-self: (
+  auto: auto,
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  stretch: stretch,
+);
+
+$justify-content: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  between: space-between,
+  around: space-around,
+  evenly: space-evenly,
+);
+
+$border-style: (
+  none: none,
+  solid: solid,
+  dashed: dashed,
+);

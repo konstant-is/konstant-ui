@@ -1,0 +1,26 @@
+{
+  "name": "konstant-ui",
+  "version": "1.0.0",
+  "description": "CLI tool for Konstant UI utilities",
+  "bin": {
+    "konstant-ui": "./cli.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "generate:tokens": "tsx tools/create-tokens"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@ianvs/prettier-plugin-sort-imports": "^4.5.1",
+    "eslint": "^9.31.0",
+    "prettier": "^3.6.2",
+    "sass": "^1.89.2",
+    "typescript": "^5.8.3"
+  }
+}
